@@ -25,6 +25,7 @@
 		4CADDD9259500BF0E21D20AC /* GeneralSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E591475847FBF652742DB9 /* GeneralSettingsView.swift */; };
 		4E105195BADDF1A98517DB7F /* ConfigSectionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D46AFBD9E3CBBE21ED08D /* ConfigSectionModels.swift */; };
 		5A9A367E4DAC45E1DACA4BB6 /* GhosttyExecutableLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7668E5CB90078136DD417BE6 /* GhosttyExecutableLocator.swift */; };
+		5ED4B043BDF03D5EEB8742E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6E4D285109E5EAD167BFD22 /* Assets.xcassets */; };
 		5EE890E8C08CA7FA45C9F262 /* ChangeTrackingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCE74402B49C8AF1BA787C7 /* ChangeTrackingModels.swift */; };
 		633DBF14DFDCABD266EA2C4C /* AtomicRepositoryStressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874A86BC65FB0EAA33D06DD4 /* AtomicRepositoryStressTests.swift */; };
 		66911DDD7B579C6AA6806263 /* AppViewModel+Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC80F517E2FC83C4F1FDE23 /* AppViewModel+Appearance.swift */; };
@@ -170,6 +171,7 @@
 		E878A992441611407BAAF652 /* ConfigChangeTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigChangeTracker.swift; sourceTree = "<group>"; };
 		EB13EA0053753FA90C080531 /* PersianFontDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianFontDetector.swift; sourceTree = "<group>"; };
 		F4AD492019E319C87C36EB03 /* WindowModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowModels.swift; sourceTree = "<group>"; };
+		F6E4D285109E5EAD167BFD22 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC91B512B9ABC07518432414 /* DiagnosticSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticSheetView.swift; sourceTree = "<group>"; };
 		FE6AF6ACB1585FEF7B308FBC /* GhosttyPersianApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhosttyPersianApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -277,6 +279,7 @@
 		B10494588A17BDAC652111FD /* GhosttyPersian */ = {
 			isa = PBXGroup;
 			children = (
+				F6E4D285109E5EAD167BFD22 /* Assets.xcassets */,
 				2CCD28B25FC8735CD1CE31C9 /* App */,
 				E368DA31F750F9F6BA02BE5F /* Models */,
 				DBC2236DCA828EA4229C9D94 /* Resources */,
@@ -412,6 +415,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED4B043BDF03D5EEB8742E6 /* Assets.xcassets in Resources */,
 				DBD8086CF53DDFCFC576E626 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
