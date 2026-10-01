@@ -111,6 +111,17 @@ public struct PersianShellIntegrationService: PersianShellIntegrationServicing, 
                 alias pcat="cat"
                 pecho() { echo "$*"; }
             fi
+
+            # On-the-fly RTL line reversal widget (Option + R)
+            fix_persian_line() {
+                if command -v fribidi >/dev/null 2>&1; then
+                    BUFFER=$(echo "$BUFFER" | fribidi)
+                    CURSOR=$#BUFFER
+                fi
+            }
+            zle -N fix_persian_line 2>/dev/null || true
+            bindkey '\\er' fix_persian_line 2>/dev/null || true
+            bindkey '^[r' fix_persian_line 2>/dev/null || true
             \(PersianShellMarkers.endMarker)
             """
 
@@ -133,6 +144,14 @@ public struct PersianShellIntegrationService: PersianShellIntegrationServicing, 
                     echo $argv
                 end
             end
+
+            # On-the-fly RTL line reversal function (Option + R)
+            function fix_persian_line
+                set -l current_line (commandline)
+                set -l fixed_line (echo $current_line | fribidi)
+                commandline -r $fixed_line
+            end
+            bind \\er fix_persian_line
             \(PersianShellMarkers.endMarker)
             """
         }

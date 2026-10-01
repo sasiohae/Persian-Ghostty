@@ -98,6 +98,11 @@ final class PersianShellIntegrationTests: XCTestCase {
         XCTAssertTrue(script.contains("alias bidi="))
         XCTAssertTrue(script.contains("alias pcat="))
         XCTAssertTrue(script.contains("pecho()"))
+        XCTAssertTrue(script.contains("fix_persian_line"))
+        XCTAssertTrue(script.contains("zle -N fix_persian_line"))
+        XCTAssertTrue(script.contains("bindkey"))
+        XCTAssertTrue(script.contains("\\er"))
+        XCTAssertTrue(script.contains("^[r"))
     }
 
     func testFishHookGenerationContent() {
@@ -115,6 +120,37 @@ final class PersianShellIntegrationTests: XCTestCase {
         XCTAssertTrue(script.contains("alias bidi="))
         XCTAssertTrue(script.contains("alias pcat="))
         XCTAssertTrue(script.contains("function pecho"))
+        XCTAssertTrue(script.contains("function fix_persian_line"))
+        XCTAssertTrue(script.contains("commandline"))
+        XCTAssertTrue(script.contains("bind \\er fix_persian_line"))
+    }
+
+    func testZshHookContainsOnTheFlyLineReversalBinding() {
+        let service = PersianShellIntegrationService(
+            homeDirectory: tempDirectory,
+            environment: [:],
+            fileManager: fileManager
+        )
+        let script = service.generateHookScript(for: .zsh)
+
+        XCTAssertTrue(script.contains("BUFFER=$(echo \"$BUFFER\" | fribidi)"))
+        XCTAssertTrue(script.contains("CURSOR=$#BUFFER"))
+        XCTAssertTrue(script.contains("bindkey '\\er' fix_persian_line"))
+        XCTAssertTrue(script.contains("bindkey '^[r' fix_persian_line"))
+    }
+
+    func testFishHookContainsOnTheFlyLineReversalBinding() {
+        let service = PersianShellIntegrationService(
+            homeDirectory: tempDirectory,
+            environment: [:],
+            fileManager: fileManager
+        )
+        let script = service.generateHookScript(for: .fish)
+
+        XCTAssertTrue(script.contains("set -l current_line (commandline)"))
+        XCTAssertTrue(script.contains("set -l fixed_line (echo $current_line | fribidi)"))
+        XCTAssertTrue(script.contains("commandline -r $fixed_line"))
+        XCTAssertTrue(script.contains("bind \\er fix_persian_line"))
     }
 
     // MARK: - 3. BiDi Helper Availability Tests

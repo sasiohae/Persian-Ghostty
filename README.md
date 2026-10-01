@@ -22,6 +22,7 @@
 - **اعتبارسنجی زنده با Ghostty CLI**: قبل از ذخیره، صحت تنظیمات توسط دستور رسمی `ghostty +validate-config` اعتبارسنجی می‌شود.
 - **پشتیبان‌گیری خودکار و جایگزینی اتمیک (Atomic Save & Safety Backups)**: قبل از هر بار ذخیره، یک نسخه پشتیبان با برچسب زمان ایجاد شده و فایل جدید به شکل اتمیک جایگزین می‌شود تا خطر از دست رفتن اطلاعات به صفر برسد.
 - **بررسی تغییرات (Diff Inspector)**: امکان مشاهده دقیق تغییرات جدید در مقایسه با فایل ذخیره‌شده روی دیسک پیش از اعمال نهایی.
+- **کلید میانبر Option + R برای تصحیح درلحظه فارسی**: بازآرایی و مرتب‌سازی خودکار و برخط خط فرمان با fribidi قبل از اجرای دستور.
 
 ---
 
@@ -48,6 +49,14 @@
 ### 4. Interactive Diagnostics & Error Handling
 - Structured diagnostic reports with human-readable root causes, recovery suggestions, and actionable resolution buttons.
 - Collapsible technical logs with one-click clipboard copying for troubleshooting.
+
+### 5. Persian Command-Line Typing & On-the-Fly BiDi Shortcut (`Option + R`)
+- **On-the-Fly Prompt BiDi Reversal (`Option + R` / `\er`)**: Ghostty terminals render text left-to-right; when typing Persian commands or mixed scripts, text can appear reversed before execution. Pressing `Option + R` instantly invokes an in-place line reordering widget powered by `fribidi` to correct the line buffer before running.
+- **Interactive Shell Helpers**:
+  - `pcat <file>`: Reads files with Persian RTL BiDi shaping.
+  - `pecho <text>`: Echoes Persian text with proper word ordering.
+  - `command | bidi`: Stream filter for piping any command output through BiDi reordering.
+- **Non-Destructive Shell Hooks**: One-click install and safe removal for both **Zsh** (`~/.zshrc`) and **Fish** (`~/.config/fish/conf.d/ghostty_persian.fish`).
 
 ---
 

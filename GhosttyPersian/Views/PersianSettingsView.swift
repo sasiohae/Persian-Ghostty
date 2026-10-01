@@ -648,8 +648,33 @@ public struct PersianSettingsView: View {
     }
 
     private var shellHelpersExplanationRow: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("Installed Interactive Commands:")
+        VStack(alignment: .leading, spacing: 8) {
+            // Option + R prompt shortcut highlight
+            HStack(alignment: .top, spacing: 8) {
+                Image(systemName: "keyboard")
+                    .foregroundStyle(Color.accentColor)
+                    .font(.body)
+                VStack(alignment: .leading, spacing: 2) {
+                    HStack(spacing: 4) {
+                        Text("On-the-Fly Prompt BiDi Fix:")
+                            .font(.caption.weight(.semibold))
+                        Text("Option + R")
+                            .font(.system(.caption2, design: .monospaced).weight(.bold))
+                            .padding(.horizontal, 5)
+                            .padding(.vertical, 1)
+                            .background(Color.accentColor.opacity(0.15))
+                            .foregroundStyle(Color.accentColor)
+                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                    }
+                    Text("Press Option + R in your terminal prompt to instantly reverse and fix Persian input in the buffer before executing.")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            Divider()
+
+            Text("Installed Commands & Aliases:")
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
 
