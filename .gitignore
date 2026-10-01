@@ -9,6 +9,7 @@
 # Xcode and build artifacts
 DerivedData/
 build/
+release/
 *.build/
 *.xcresult/
 *.xcuserdata/
