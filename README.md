@@ -108,4 +108,4 @@ The project contains **205 automated unit and integration tests** across 25 dist
 
 Ghostty Persian is released under the **MIT License**. See [LICENSE](LICENSE) for details.
 
-Developed with ❤️ for the Persian and international terminal community.
+Developed with ❤️
