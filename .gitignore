@@ -1,0 +1,30 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Xcode and build artifacts
+DerivedData/
+build/
+*.build/
+*.xcresult/
+*.xcuserdata/
+xcuserdata/
+*.xcuserdatad/
+xcuserdatad/
+
+# Swift Package Manager
+.build/
+Packages/
+Package.pins
+Package.resolved
+
+# Backups and temporary files
+*.swp
+*.swo
+*~
+*.bak
+*.tmp

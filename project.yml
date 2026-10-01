@@ -1,0 +1,58 @@
+name: GhosttyPersian
+options:
+  bundleIdPrefix: com.persian-ghostty
+  deploymentTarget:
+    macOS: "14.0"
+targets:
+  GhosttyPersian:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: GhosttyPersian
+        excludes:
+          - Tests
+    settings:
+      base:
+        PRODUCT_NAME: "GhosttyPersian"
+        PRODUCT_BUNDLE_IDENTIFIER: "com.persian-ghostty.GhosttyPersian"
+        INFOPLIST_KEY_CFBundleDisplayName: "Ghostty Persian"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        SWIFT_VERSION: "5.0"
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGNING_REQUIRED: "NO"
+        ASSETCATALOG_COMPILER_APPICON_NAME: "AppIcon"
+        GENERATE_INFOPLIST_FILE: "YES"
+        ENABLE_PREVIEWS: "YES"
+        COMBINE_HIDPI_IMAGES: "YES"
+  GhosttyPersianTests:
+    type: bundle.unit-test
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: GhosttyPersian/Tests
+    dependencies:
+      - target: GhosttyPersian
+    settings:
+      base:
+        PRODUCT_NAME: "GhosttyPersianTests"
+        PRODUCT_BUNDLE_IDENTIFIER: "com.persian-ghostty.GhosttyPersianTests"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        SWIFT_VERSION: "5.0"
+        CODE_SIGN_IDENTITY: "-"
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGNING_REQUIRED: "NO"
+        GENERATE_INFOPLIST_FILE: "YES"
+schemes:
+  GhosttyPersian:
+    build:
+      targets:
+        GhosttyPersian: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - GhosttyPersianTests
+
