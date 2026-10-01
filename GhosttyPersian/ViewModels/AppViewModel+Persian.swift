@@ -110,4 +110,67 @@ extension AppViewModel {
         }
         return changes
     }
+
+    // MARK: - Interactive Shell & BiDi Integration
+
+    /// Detected active shell type (e.g. zsh, fish).
+    public var detectedShellType: PersianShellType {
+        persianShellService.detectActiveShell()
+    }
+
+    /// Status of Persian shell integration for the specified shell (or detected active shell).
+    public func getPersianShellStatus(for shell: PersianShellType? = nil) -> PersianShellStatus {
+        let target = shell ?? detectedShellType
+        return persianShellService.getStatus(for: target)
+    }
+
+    /// Whether Persian shell integration is currently installed for the specified shell (or detected active shell).
+    public func isPersianShellInstalled(for shell: PersianShellType? = nil) -> Bool {
+        let target = shell ?? detectedShellType
+        return persianShellService.isInstalled(for: target)
+    }
+
+    /// Safely installs the Persian interactive shell integration.
+    @discardableResult
+    public func installPersianShellIntegration(for shell: PersianShellType? = nil) -> Bool {
+        let target = shell ?? detectedShellType
+        do {
+            let url = try persianShellService.install(for: target)
+            showToast(
+                title: "Shell Integration Installed",
+                message: "Added Persian BiDi & RTL helpers to \(url.lastPathComponent)."
+            )
+            return true
+        } catch {
+            showToast(
+                title: "Installation Failed",
+                message: error.localizedDescription,
+                isError: true
+            )
+            return false
+        }
+    }
+
+    /// Safely removes the Persian interactive shell integration.
+    @discardableResult
+    public func removePersianShellIntegration(for shell: PersianShellType? = nil) -> Bool {
+        let target = shell ?? detectedShellType
+        do {
+            let removed = try persianShellService.remove(for: target)
+            if removed {
+                showToast(
+                    title: "Shell Integration Removed",
+                    message: "Cleaned Persian helpers from \(target.displayName) configuration."
+                )
+            }
+            return removed
+        } catch {
+            showToast(
+                title: "Removal Failed",
+                message: error.localizedDescription,
+                isError: true
+            )
+            return false
+        }
+    }
 }

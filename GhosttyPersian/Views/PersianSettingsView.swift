@@ -13,6 +13,8 @@ public struct PersianSettingsView: View {
     @State private var previewMode: PersianPreviewMode = .prose
     @State private var selectedPreset: PersianPreset = .standard
     @State private var showPresetSheet: Bool = false
+    @State private var selectedShell: PersianShellType = .zsh
+    @State private var shellStatusRefreshTrigger: UUID = UUID()
 
     private enum PersianPreviewMode: String, CaseIterable, Identifiable {
         case prose = "Prose"
@@ -99,6 +101,21 @@ public struct PersianSettingsView: View {
                 Label("Ghostty RTL & Shaping Information", systemImage: "info.circle")
             }
 
+            // MARK: - Interactive Persian Shell Support
+            Section {
+                shellSelectionRow
+                shellStatusRow
+                bidiEngineStatusRow
+                shellActionsRow
+                shellHelpersExplanationRow
+            } header: {
+                Label("Interactive Persian Shell Support", systemImage: "terminal")
+            } footer: {
+                Text("Installs non-destructive Persian BiDi helpers (pcat, pecho, bidi) and UTF-8 combining character support into your interactive shell.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
             // MARK: - Interactive Preview
             Section {
                 previewSection
@@ -124,6 +141,7 @@ public struct PersianSettingsView: View {
                     ?? viewModel.persianReport.recommendedFontName
                     ?? "Vazir"
             }
+            selectedShell = viewModel.detectedShellType
         }
         .sheet(isPresented: $showPresetSheet) {
             presetDiffSheet
@@ -502,6 +520,159 @@ public struct PersianSettingsView: View {
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
+            }
+        }
+        .padding(10)
+        .background(Color(nsColor: .controlBackgroundColor))
+        .clipShape(RoundedRectangle(cornerRadius: 8))
+    }
+
+    // MARK: - Interactive Shell Support Components
+
+    private var currentShellStatus: PersianShellStatus {
+        _ = shellStatusRefreshTrigger
+        return viewModel.getPersianShellStatus(for: selectedShell)
+    }
+
+    private var shellSelectionRow: some View {
+        HStack {
+            Text("Target Shell")
+            Spacer()
+            Picker("", selection: $selectedShell) {
+                ForEach(PersianShellType.allCases) { shell in
+                    Text(shell.displayName).tag(shell)
+                }
+            }
+            .labelsHidden()
+            .frame(width: 140)
+
+            if selectedShell == viewModel.detectedShellType {
+                Text("Active ($SHELL)")
+                    .font(.caption2.weight(.bold))
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(Color.accentColor.opacity(0.15))
+                    .foregroundStyle(Color.accentColor)
+                    .clipShape(Capsule())
+            }
+        }
+    }
+
+    private var shellStatusRow: some View {
+        LabeledContent("Integration Status") {
+            let status = currentShellStatus
+            if status.isInstalled {
+                HStack(spacing: 6) {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.green)
+                    Text("Installed")
+                        .font(.callout.weight(.medium))
+                        .foregroundStyle(.green)
+                    Text("(\(status.configURL.lastPathComponent))")
+                        .font(.caption.monospaced())
+                        .foregroundStyle(.secondary)
+                }
+            } else {
+                HStack(spacing: 6) {
+                    Image(systemName: "circle.slash")
+                        .foregroundStyle(.orange)
+                    Text("Not Installed")
+                        .font(.callout.weight(.medium))
+                        .foregroundStyle(.orange)
+                }
+            }
+        }
+    }
+
+    private var bidiEngineStatusRow: some View {
+        LabeledContent("BiDi Engine (fribidi)") {
+            let status = currentShellStatus
+            if status.isBiDiHelperAvailable {
+                HStack(spacing: 6) {
+                    Image(systemName: "checkmark.seal.fill")
+                        .foregroundStyle(.green)
+                    Text("Available")
+                        .font(.callout.weight(.medium))
+                        .foregroundStyle(.green)
+                    if let path = status.biDiHelperPath {
+                        Text("(\(path))")
+                            .font(.caption.monospaced())
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            } else {
+                HStack(spacing: 6) {
+                    Image(systemName: "info.circle")
+                        .foregroundStyle(.blue)
+                    Text("Optional (brew install fribidi)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+            }
+        }
+    }
+
+    private var shellActionsRow: some View {
+        let status = currentShellStatus
+        return HStack(spacing: 12) {
+            if status.isInstalled {
+                Button {
+                    viewModel.installPersianShellIntegration(for: selectedShell)
+                    shellStatusRefreshTrigger = UUID()
+                } label: {
+                    Label("Update Integration", systemImage: "arrow.triangle.2.circlepath")
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.regular)
+
+                Button(role: .destructive) {
+                    viewModel.removePersianShellIntegration(for: selectedShell)
+                    shellStatusRefreshTrigger = UUID()
+                } label: {
+                    Label("Remove Integration", systemImage: "trash")
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.regular)
+            } else {
+                Button {
+                    viewModel.installPersianShellIntegration(for: selectedShell)
+                    shellStatusRefreshTrigger = UUID()
+                } label: {
+                    Label("Install Shell Integration", systemImage: "arrow.down.circle.fill")
+                }
+                .buttonStyle(.borderedProminent)
+                .controlSize(.regular)
+            }
+        }
+        .padding(.vertical, 4)
+    }
+
+    private var shellHelpersExplanationRow: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Installed Interactive Commands:")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(.secondary)
+
+            HStack(spacing: 8) {
+                Text("pcat <file>")
+                    .font(.system(.caption, design: .monospaced).weight(.bold))
+                Text("• Print file with Persian RTL BiDi shaping")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+            HStack(spacing: 8) {
+                Text("pecho <text>")
+                    .font(.system(.caption, design: .monospaced).weight(.bold))
+                Text("• Echo Persian text with proper word ordering")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
+            }
+            HStack(spacing: 8) {
+                Text("bidi")
+                    .font(.system(.caption, design: .monospaced).weight(.bold))
+                Text("• Pipe filter for BiDi formatting (e.g. command | bidi)")
+                    .font(.caption2)
+                    .foregroundStyle(.secondary)
             }
         }
         .padding(10)

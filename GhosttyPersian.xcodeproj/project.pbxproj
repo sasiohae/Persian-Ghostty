@@ -35,6 +35,7 @@
 		79932CF1702DC7B54907CF58 /* ConfigChangeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E878A992441611407BAAF652 /* ConfigChangeTracker.swift */; };
 		7A0D1769E7408323BE3B027C /* GhosttyConfigDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66599FFDEE953AFA9CC0CE9E /* GhosttyConfigDocument.swift */; };
 		7C78A9F2E9CA76D30E059093 /* PersianSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CC6A491514F6CAA4DC3F5C /* PersianSettingsView.swift */; };
+		7F866AE52CCE740EEC8F6899 /* PersianShellIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC82062B758AA2DE38DD94E /* PersianShellIntegrationTests.swift */; };
 		80B788EC796A20C3DAAC9FE4 /* WindowSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1713CD384887FF24B8CC2D95 /* WindowSettingsTests.swift */; };
 		8292A76BCC03138C5595433B /* AppViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867B31F78C8E10CD5D6D3FBD /* AppViewModel.swift */; };
 		86C91F07653421E75B53B05B /* AppearanceSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59074D1ADACA8157C42EEB80 /* AppearanceSettingsTests.swift */; };
@@ -44,6 +45,7 @@
 		97E7776967C11CF1AF763835 /* GhosttyCLIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5DE13D9BC49D7DAFAB7E7A /* GhosttyCLIService.swift */; };
 		98749618F3781EF5D2C5D762 /* PathResolutionResiliencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633271086D7FF784EB1C0198 /* PathResolutionResiliencyTests.swift */; };
 		9FA22BB7E0988F25A673CD57 /* AppearanceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D8CAFB92C24FD99EAA5BB /* AppearanceSettingsView.swift */; };
+		A28A626A52C8C494A0048F48 /* PersianShellModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E5537A193378E329498773 /* PersianShellModels.swift */; };
 		A3FDFCDB65F6E91BC4BE4790 /* GhosttyConfigPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ABC4C5230F1969DC99D9BCA /* GhosttyConfigPath.swift */; };
 		A5548E054E4B6D02446B7BB0 /* ShellSettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14BB47206C4EB738C73F079 /* ShellSettingsTests.swift */; };
 		A5DF52E371B31BA04610C8C1 /* PersianPresetModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF99CBEC7CD2220E423F3C20 /* PersianPresetModels.swift */; };
@@ -56,6 +58,7 @@
 		CB209326094AB850C01A5D93 /* GhosttyExecutableLocatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C4F43340C3CAFAF27AA83B /* GhosttyExecutableLocatorTests.swift */; };
 		CB51A52574E104D45D8812BC /* AppViewModel+Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58706BD2CD00E9A1FA4B2CD6 /* AppViewModel+Window.swift */; };
 		CD6D75D953C30696C4676675 /* ConfigSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 412A5955266BBFDB06D66453 /* ConfigSectionView.swift */; };
+		CFEFCFC4FF6D3B4ED8137736 /* PersianShellIntegrationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2691E4AD4BB2EFDD55ACF70 /* PersianShellIntegrationService.swift */; };
 		D26FBDE447F27AFE242837A7 /* ProcessRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF280022D7505511BAEE050 /* ProcessRunner.swift */; };
 		D7B3591A665E124C1CD1BBA7 /* GhosttyConfigParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F6A7E41B7FB4081FADA3B6 /* GhosttyConfigParser.swift */; };
 		DAAD8A88D7B5EBB5F902DB9F /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0618EAAD48B79C19428DB8B /* SidebarView.swift */; };
@@ -96,6 +99,7 @@
 		049D8CAFB92C24FD99EAA5BB /* AppearanceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsView.swift; sourceTree = "<group>"; };
 		04F572E2F66D415B65822664 /* GhosttyConfigRepositoryModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhosttyConfigRepositoryModels.swift; sourceTree = "<group>"; };
 		0CE69FD0CF83319BC0EDAE8F /* GhosttyPersianTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GhosttyPersianTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E5537A193378E329498773 /* PersianShellModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianShellModels.swift; sourceTree = "<group>"; };
 		1713CD384887FF24B8CC2D95 /* WindowSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowSettingsTests.swift; sourceTree = "<group>"; };
 		1E9AADCA1802F229CB56DA04 /* TypographySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographySettingsView.swift; sourceTree = "<group>"; };
 		21399E7ECC4435C95DBD1992 /* PersianFontModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianFontModels.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		7CFC56EFB3AA7481FC64C72A /* ErrorHandlingAndDiagnosticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandlingAndDiagnosticsTests.swift; sourceTree = "<group>"; };
 		7D73718F8B5EE16C200E893D /* GhosttyConfigRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhosttyConfigRepositoryTests.swift; sourceTree = "<group>"; };
 		7E94BE198A55987AC1ECE4E6 /* AppViewModel+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppViewModel+Config.swift"; sourceTree = "<group>"; };
+		7EC82062B758AA2DE38DD94E /* PersianShellIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianShellIntegrationTests.swift; sourceTree = "<group>"; };
 		81D27C1763C24CDEA80D4D0F /* GhosttyPersian.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GhosttyPersian.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85C5D8D1F882C16F09C2A7D6 /* GeneralSettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsTests.swift; sourceTree = "<group>"; };
 		867B31F78C8E10CD5D6D3FBD /* AppViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModel.swift; sourceTree = "<group>"; };
@@ -158,6 +163,7 @@
 		DFF61DD775546CFBD72CBE4B /* ShellModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellModels.swift; sourceTree = "<group>"; };
 		E175B764EEA07ABFEE74FA5A /* GhosttyConfigPathResolver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GhosttyConfigPathResolver.swift; sourceTree = "<group>"; };
 		E1CC6A491514F6CAA4DC3F5C /* PersianSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianSettingsView.swift; sourceTree = "<group>"; };
+		E2691E4AD4BB2EFDD55ACF70 /* PersianShellIntegrationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersianShellIntegrationService.swift; sourceTree = "<group>"; };
 		E3DA22B4503EEA0D292F381C /* DiagnosticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiagnosticService.swift; sourceTree = "<group>"; };
 		E45DF7F2E54E22B3C97680B2 /* WorkspaceOpener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceOpener.swift; sourceTree = "<group>"; };
 		E51264453C806CDAC668F8F9 /* AppViewModelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppViewModelState.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 				7668E5CB90078136DD417BE6 /* GhosttyExecutableLocator.swift */,
 				EB13EA0053753FA90C080531 /* PersianFontDetector.swift */,
 				89FAF858389404F6959AA169 /* PersianPresetService.swift */,
+				E2691E4AD4BB2EFDD55ACF70 /* PersianShellIntegrationService.swift */,
 				BCF280022D7505511BAEE050 /* ProcessRunner.swift */,
 				E45DF7F2E54E22B3C97680B2 /* WorkspaceOpener.swift */,
 			);
@@ -227,6 +234,7 @@
 				633271086D7FF784EB1C0198 /* PathResolutionResiliencyTests.swift */,
 				25FDA727C61069DA19C99198 /* PersianPresetTests.swift */,
 				8F8FD3C5AA47C4B5192F5739 /* PersianSettingsTests.swift */,
+				7EC82062B758AA2DE38DD94E /* PersianShellIntegrationTests.swift */,
 				A4018808BFC84BACA4DF42EF /* PolishedUITests.swift */,
 				A2426389BF4E53D643DBBEDE /* PreviewAndChangeTrackingTests.swift */,
 				D6A97641BD1746F28DB52BD3 /* ProcessRunnerTests.swift */,
@@ -301,6 +309,7 @@
 				66208E5D84C0ED1967259391 /* NavigationSection.swift */,
 				21399E7ECC4435C95DBD1992 /* PersianFontModels.swift */,
 				AF99CBEC7CD2220E423F3C20 /* PersianPresetModels.swift */,
+				16E5537A193378E329498773 /* PersianShellModels.swift */,
 				DFF61DD775546CFBD72CBE4B /* ShellModels.swift */,
 				F4AD492019E319C87C36EB03 /* WindowModels.swift */,
 			);
@@ -433,6 +442,7 @@
 				98749618F3781EF5D2C5D762 /* PathResolutionResiliencyTests.swift in Sources */,
 				32E59BA925B88BB7DEB8717D /* PersianPresetTests.swift in Sources */,
 				7262595ABDC67D7B634A2445 /* PersianSettingsTests.swift in Sources */,
+				7F866AE52CCE740EEC8F6899 /* PersianShellIntegrationTests.swift in Sources */,
 				178BCF645F0C9165888ECEB3 /* PolishedUITests.swift in Sources */,
 				E52C9C262DB30B6A85CE2F0D /* PreviewAndChangeTrackingTests.swift in Sources */,
 				4B494B81B1264E57B0C549FE /* ProcessRunnerTests.swift in Sources */,
@@ -483,6 +493,8 @@
 				A5DF52E371B31BA04610C8C1 /* PersianPresetModels.swift in Sources */,
 				BF274A198BEF5174C7955077 /* PersianPresetService.swift in Sources */,
 				7C78A9F2E9CA76D30E059093 /* PersianSettingsView.swift in Sources */,
+				CFEFCFC4FF6D3B4ED8137736 /* PersianShellIntegrationService.swift in Sources */,
+				A28A626A52C8C494A0048F48 /* PersianShellModels.swift in Sources */,
 				D26FBDE447F27AFE242837A7 /* ProcessRunner.swift in Sources */,
 				8EA3E192677AFBEF3EE268D6 /* ShellModels.swift in Sources */,
 				BE4AC6D1ECA455ED0CDB6283 /* ShellSettingsView.swift in Sources */,

@@ -10,6 +10,7 @@ public final class AppViewModel: @unchecked Sendable {
     public let repository: GhosttyConfigRepositoryProtocol
     public let cliService: GhosttyCLIServiceProtocol
     public let workspaceOpener: WorkspaceOpening
+    public let persianShellService: PersianShellIntegrationServicing
 
     // MARK: - State
 
@@ -107,11 +108,13 @@ public final class AppViewModel: @unchecked Sendable {
     public init(
         repository: GhosttyConfigRepositoryProtocol = GhosttyConfigRepository(),
         cliService: GhosttyCLIServiceProtocol = GhosttyCLIService(),
-        workspaceOpener: WorkspaceOpening = DefaultWorkspaceOpener()
+        workspaceOpener: WorkspaceOpening = DefaultWorkspaceOpener(),
+        persianShellService: PersianShellIntegrationServicing = PersianShellIntegrationService()
     ) {
         self.repository = repository
         self.cliService = cliService
         self.workspaceOpener = workspaceOpener
+        self.persianShellService = persianShellService
     }
 
     // MARK: - Lifecycle
